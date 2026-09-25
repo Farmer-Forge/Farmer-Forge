@@ -1,0 +1,150 @@
+@import "@fontsource-variable/unbounded";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Farmer Forge tokens. Source of truth: DESIGN.md.
+   Add a token here AND in DESIGN.md in the same commit, or not at all.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-*: initial;
+
+  /* Ink: the dark field everything sits on */
+  --color-ink-950: #06070a;
+  --color-ink-900: #0b0d12;
+  --color-ink-800: #12151c;
+  --color-ink-700: #1b1f29;
+  --color-ink-600: #2a303d;
+
+  /* Bone: text on ink */
+  --color-bone-50: #f4f1ea;
+  --color-bone-200: #c9c6bf;
+  --color-bone-400: #8b8d94;
+  --color-bone-600: #5b5e67;
+
+  /* Ember: the heat. Primary accent. */
+  --color-ember-300: #ffb347;
+  --color-ember-500: #ff5a1f;
+  --color-ember-700: #c2360b;
+
+  /* Plasma: the machine. Secondary accent, used sparingly. */
+  --color-plasma-300: #9af0ff;
+  --color-plasma-500: #3de0ff;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: "Unbounded Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  /* Motion language: three curves, four durations. Nothing else. */
+  --ease-forge: cubic-bezier(0.16, 1, 0.3, 1);      /* default: fast out, long settle */
+  --ease-strike: cubic-bezier(0.7, 0, 0.84, 0);     /* exits only */
+  --ease-molten: cubic-bezier(0.45, 0, 0.55, 1);    /* loops, ambient */
+}
+
+:root {
+  --dur-quick: 200ms;
+  --dur-base: 600ms;
+  --dur-slow: 1200ms;
+  --dur-ambient: 12s;
+  --heat: linear-gradient(100deg, var(--color-ember-700) 0%, var(--color-ember-500) 35%, var(--color-ember-300) 65%, var(--color-plasma-300) 100%);
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink-950);
+  color: var(--color-bone-50);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+::selection { background: var(--color-ember-500); color: var(--color-ink-950); }
+
+/* ---- Utilities that encode the design system ---- */
+@utility text-heat {
+  background: var(--heat);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-heat {
+  background: var(--heat);
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--color-ink-800) 55%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid color-mix(in oklab, var(--color-bone-50) 9%, transparent);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bone-400);
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 8.5vw, 8.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Film grain over everything. Pure CSS, no image request. */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -4%); }
+  60% { transform: translate(-4%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 38s linear infinite; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain, .marquee-track { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
