@@ -21,7 +21,7 @@ const fragment = /* glsl */ `
   varying vec2 vUv;
 
   // Palette pulled from DESIGN.md tokens
-  const vec3 INK    = vec3(0.024, 0.027, 0.039);
+  const vec3 INK    = vec3(0.043, 0.051, 0.075);
   const vec3 EMBER7 = vec3(0.761, 0.212, 0.043);
   const vec3 EMBER5 = vec3(1.000, 0.353, 0.122);
   const vec3 EMBER3 = vec3(1.000, 0.702, 0.278);
@@ -52,9 +52,9 @@ const fragment = /* glsl */ `
     float f = fbm(p + 3.8 * r);
 
     // Heat bands: mostly dark, with rivers of ember and a white-hot core.
-    float heat = smoothstep(0.42, 0.95, f);
+    float heat = smoothstep(0.4, 0.93, f);
     vec3 col = INK;
-    col = mix(col, EMBER7 * 0.55, smoothstep(0.35, 0.7, f));
+    col = mix(col, EMBER7 * 0.8, smoothstep(0.3, 0.65, f));
     col = mix(col, EMBER5, pow(heat, 2.2) * 0.85);
     col += EMBER3 * pow(heat, 5.0) * 0.9;
 
@@ -63,12 +63,13 @@ const fragment = /* glsl */ `
     col += PLASMA * vein * 0.22;
 
     // Composition: heat pools toward the right/bottom, text side stays calm
-    float mask = smoothstep(-0.9, 0.9, uv.x + 0.25) * 0.85 + 0.15;
+    float mask = smoothstep(-0.9, 0.9, uv.x + 0.25) * 0.75 + 0.25;
     col = mix(INK, col, mask);
 
     // Vignette + bottom fade into the page
-    float vig = smoothstep(1.35, 0.25, length(uv * vec2(0.8, 1.0)));
-    col *= vig;
+    float vig = smoothstep(1.7, 0.2, length(uv * vec2(0.8, 1.0)));
+    col *= 0.35 + 0.65 * vig;
+    col *= 1.0;
     col = mix(INK, col, smoothstep(0.0, 0.35, vUv.y));
 
     gl_FragColor = vec4(col, 1.0);

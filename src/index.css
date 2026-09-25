@@ -11,17 +11,17 @@
   --color-*: initial;
 
   /* Ink: the dark field everything sits on */
-  --color-ink-950: #06070a;
-  --color-ink-900: #0b0d12;
-  --color-ink-800: #12151c;
-  --color-ink-700: #1b1f29;
-  --color-ink-600: #2a303d;
+  --color-ink-950: #0b0d13;
+  --color-ink-900: #11141c;
+  --color-ink-800: #181c26;
+  --color-ink-700: #232836;
+  --color-ink-600: #333a4a;
 
   /* Bone: text on ink */
   --color-bone-50: #f4f1ea;
   --color-bone-200: #c9c6bf;
-  --color-bone-400: #8b8d94;
-  --color-bone-600: #5b5e67;
+  --color-bone-400: #a2a4ab;
+  --color-bone-600: #6e717a;
 
   /* Ember: the heat. Primary accent. */
   --color-ember-300: #ffb347;
@@ -96,7 +96,7 @@ html.lenis, html.lenis body { height: auto; }
 @utility display-xl {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.6rem, 8.5vw, 8.5rem);
+  font-size: clamp(2.6rem, 7.4vw, 7.5rem);
   line-height: 0.92;
   letter-spacing: -0.045em;
 }

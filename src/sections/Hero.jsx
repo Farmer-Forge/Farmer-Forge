@@ -23,7 +23,7 @@ export function Hero() {
       </motion.div>
 
       {/* scrim so copy always reads on top of the shader */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent md:bg-gradient-to-r md:from-ink-950/90 md:via-ink-950/30" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent md:bg-gradient-to-r md:from-ink-950/75 md:via-ink-950/10" />
 
       <motion.div style={{ opacity: fade, y: lift }} className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-10">
         <motion.p
@@ -39,7 +39,7 @@ export function Hero() {
           {hero.eyebrow}
         </motion.p>
 
-        <h1 className="display-xl max-w-5xl" aria-label={hero.lines.join(' ')}>
+        <h1 className="display-xl max-w-4xl" aria-label={hero.lines.join(' ')}>
           {hero.lines.map((line, i) => (
             <SplitReveal
               key={line}

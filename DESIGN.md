@@ -25,15 +25,15 @@ Defined in `src/index.css` → `@theme`. The default Tailwind palette is **disab
 
 | Token | Hex | Use |
 |---|---|---|
-| `ink-950` | `#06070a` | Page background |
-| `ink-900` | `#0b0d12` | Alternate section background |
-| `ink-800` | `#12151c` | Glass base |
-| `ink-700` | `#1b1f29` | Grid lines, deep surfaces |
-| `ink-600` | `#2a303d` | 3D base material |
+| `ink-950` | `#0b0d13` | Page background |
+| `ink-900` | `#11141c` | Alternate section background |
+| `ink-800` | `#181c26` | Glass base |
+| `ink-700` | `#232836` | Grid lines, deep surfaces |
+| `ink-600` | `#333a4a` | 3D base material |
 | `bone-50` | `#f4f1ea` | Primary text |
 | `bone-200` | `#c9c6bf` | Body text |
-| `bone-400` | `#8b8d94` | Muted text, eyebrows |
-| `bone-600` | `#5b5e67` | Faint text, legal |
+| `bone-400` | `#a2a4ab` | Muted text, eyebrows |
+| `bone-600` | `#6e717a` | Faint text, legal |
 | `ember-300` | `#ffb347` | Highlights, hot core |
 | `ember-500` | `#ff5a1f` | **Primary accent** |
 | `ember-700` | `#c2360b` | Deep heat, gradient start |
@@ -54,7 +54,7 @@ Plasma never gets its own large area. It shows up as dots, lines, wireframes and
 
 Fonts are self-hosted via `@fontsource-variable/*`, so nothing comes from Google at runtime.
 
-- `display-xl`: `clamp(2.6rem, 8.5vw, 8.5rem)`, leading 0.92, tracking -0.045em. One per section at most.
+- `display-xl`: `clamp(2.6rem, 7.4vw, 7.5rem)`, leading 0.92, tracking -0.045em. One per section at most.
 - `display-lg`: section titles.
 - `display-md`: card and step titles.
 - Every section opens with an `eyebrow`: `NN / Label`.

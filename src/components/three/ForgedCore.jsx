@@ -29,7 +29,7 @@ export function ForgedCore({ still = false }) {
   const cage = useRef()
   const { viewport } = useThree()
   const wide = viewport.aspect > 1.1
-  const scale = wide ? Math.min(viewport.height * 0.19, 1.25) : viewport.width * 0.2
+  const scale = wide ? Math.min(viewport.height * 0.17, viewport.width * 0.1, 1.2) : viewport.width * 0.2
 
   useFrame((state, delta) => {
     if (!group.current || still) return
@@ -41,7 +41,7 @@ export function ForgedCore({ still = false }) {
   })
 
   return (
-    <group position={[wide ? viewport.width * 0.27 : 0, wide ? 0.1 : viewport.height * 0.3, 0]} scale={scale}>
+    <group position={[wide ? viewport.width * 0.3 : 0, wide ? 0.1 : viewport.height * 0.3, 0]} scale={scale}>
       <group ref={group}>
         <Float speed={still ? 0 : 1.4} rotationIntensity={0.4} floatIntensity={0.6}>
           <mesh>

@@ -25,7 +25,7 @@ export default function HeroScene() {
         gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
         <MoltenField still={still} />
-        <ambientLight intensity={0.25} />
+        <ambientLight intensity={0.5} />
         <pointLight position={[4, 3, 4]} intensity={90} color="#ff5a1f" />
         <pointLight position={[-3, -2, 3]} intensity={55} color="#3de0ff" />
         <pointLight position={[0, 4, -3]} intensity={25} color="#ffb347" />
