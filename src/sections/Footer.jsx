@@ -6,10 +6,10 @@ export function Footer() {
     <footer className="relative overflow-hidden border-t border-bone-50/10 px-6 pt-16 md:px-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <Wordmark />
-        <ul className="flex gap-8 text-sm text-bone-400">
+        <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-bone-400">
           {site.nav.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="transition-colors hover:text-bone-50">
+              <a href={l.href} className="whitespace-nowrap transition-colors hover:text-bone-50">
                 {l.label}
               </a>
             </li>

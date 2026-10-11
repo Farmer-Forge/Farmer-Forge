@@ -40,7 +40,7 @@ Defined in `src/index.css` → `@theme`. The default Tailwind palette is **disab
 | `plasma-300` | `#9af0ff` | Gradient end |
 | `plasma-500` | `#3de0ff` | Machine accents: status dots, wireframes |
 
-**Ratio rule:** roughly 85% ink, 12% bone, 3% ember and plasma. If a screenshot looks orange, you've overdone it. The hero shader and contact orb are the only places heat floods an area.
+**Ratio rule:** roughly 85% ink, 12% bone, 3% ember and plasma. If a screenshot looks orange, you've overdone it. The hero shader and the contact section's bottom ember glow are the only places heat floods an area.
 
 Plasma never gets its own large area. It shows up as dots, lines, wireframes and the tail end of the heat gradient.
 
@@ -57,7 +57,7 @@ Fonts are self-hosted via `@fontsource-variable/*`, so nothing comes from Google
 - `display-xl`: `clamp(2.6rem, 7.4vw, 7.5rem)`, leading 0.92, tracking -0.045em. One per section at most.
 - `display-lg`: section titles.
 - `display-md`: card and step titles.
-- Every section opens with an `eyebrow`: `NN / Label`.
+- Only the hero has an `eyebrow`. Sections open straight on their `display-lg` title: no `NN / Label` eyebrows, no `/01` numbering (design review, 2026-10-03).
 - Body copy maxes out at `max-w-xl` (roughly 60ch).
 
 ## Motion language
@@ -81,12 +81,12 @@ Stagger: `words` 0.06s, `items` 0.12s.
 
 **Entrance patterns (one each, no alternatives):**
 
-- Headlines use `<SplitReveal>`: a word-by-word masked rise with a slight rotate.
-- Everything else uses `<Reveal>`: fade, 32px rise and 8px un-blur.
+- The hero headline uses `<SplitReveal animate>`: a word-by-word masked rise with a slight rotate, played on load.
+- Everything below the hero is **visible by default**. `<SplitReveal>` without `animate` and `<Reveal>` render static, so nothing waits on scroll to appear.
 - Scroll-scrubbed text is only used in the Principles statement (words heat from ash to ember to bone).
-- Pinned horizontal scroll is only used in the Forge Loop.
+- No pinned or sideways scroll anywhere. The Forge Loop is a vertical ordered list.
 
-**Reduced motion:** `prefers-reduced-motion` disables Lenis, grain, marquee and the pinned scroll, and renders the 3D scene as one still frame. Every new animation must respect this.
+**Reduced motion:** `prefers-reduced-motion` disables Lenis and grain, and renders the 3D scene as one still frame. Every new animation must respect this.
 
 ## Surfaces
 
@@ -101,8 +101,9 @@ Stagger: `words` 0.06s, `items` 0.12s.
 | Component | What it is | Rules |
 |---|---|---|
 | `Button` | Magnetic pill link | Two variants: `heat` (the one main action per view) and `ghost`. No third variant. |
-| `SplitReveal` | Headline entrance | `inView={false}` only in the hero (it plays on load). |
-| `Reveal` | Block entrance | `delay` in multiples of `stagger.items`. |
+| `SplitReveal` | Headline | `animate` only in the hero. Static everywhere else. |
+| `Reveal` | Block wrapper | Static; kept so sections share one wrapper. |
+| `StaticHero` | Phone hero | The business card's sphere as SVG. Phones (`max-width: 767px`) get this instead of WebGL. |
 | `SpotlightCard` | Glass card with cursor spotlight and border glow | Every card on the site. |
 | `CursorGlow` | Ember light trailing the pointer | Mounted once in `App`. Fine pointers only. |
 
@@ -111,7 +112,7 @@ Stagger: `words` 0.06s, `items` 0.12s.
 - **`MoltenField`**: a full-screen domain-warped fbm shader. The palette is hard-coded as GLSL constants from the tokens above, so if a token changes, update the shader too. Heat is masked toward the right so the headline side stays calm.
 - **`ForgedCore`**: a distorted clearcoat icosahedron, fresnel halo shell, plasma wireframe cage, ember orbit ring and Sparkles. It leans toward the cursor.
 - **`HeroScene`**: owns the Canvas. DPR is capped at 1.75, it stops rendering when off-screen, and it's lazy-loaded (three.js is its own chunk).
-- Only the hero gets WebGL. Other sections fake depth with CSS: gradients, blur, glass. One canvas per page.
+- Only the hero gets WebGL, and only above 767px wide. Other sections fake depth with CSS: gradients, blur, glass. One canvas per page.
 - No drei `<Environment>` presets (they fetch HDRs from a CDN). Light with the three point lights in `HeroScene`: ember key, plasma fill, amber back.
 
 ## Layout
@@ -123,9 +124,23 @@ Stagger: `words` 0.06s, `items` 0.12s.
 ## Case studies
 
 - Section `#cases` sits after the Forge Loop: method first, then proof.
+- Stats are the number, then the label, in markup order.
 - One full-width `SpotlightCard` per case. Tags, `display-md` title and body on the left; stats on the right, split by a bone hairline (stacked above a top hairline on mobile).
 - Stats use Unbounded in `bone-50`, never the heat gradient, with a `bone-400` label.
 - Every stat must be real and traceable to a written case study. No client names, no rounded-up guesses.
+
+## Inside the forge (method)
+
+- Section `#inside` sits after the case studies: the proof, then how it was made.
+- Two columns on `lg`: title and intro held in place with CSS `sticky` on the left, a hairline list of steps on the right. Stacks on phones.
+- Each step: a plasma status dot with a mono label, a `display-md` title, body in `bone-200`.
+- **Describe only.** No file contents, hostnames, paths or secret names from the loop. Every claim must trace to the loop's activity log or the build retro.
+
+## Live projects (`#built`)
+
+- Sits right after "Inside the forge", sharing its bottom padding so the two read as one story.
+- One `SpotlightCard` per live app, two columns from `md`. Plasma dot + mono build-method label, `display-md` name, body, tags, and a **ghost** `Button` that opens the app in a new tab. Never a heat button here.
+- Label each app by how it was really built. Only say "built by the unattended loop" for apps the loop actually built.
 
 ## Don'ts
 

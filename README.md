@@ -23,7 +23,7 @@ src/
   lib/useSmoothScroll.js   Lenis + ScrollTrigger sync, smooth anchor links
   components/ui/           Button, SplitReveal, Reveal, SpotlightCard, CursorGlow
   components/three/        HeroScene (canvas), MoltenField (shader), ForgedCore (3D)
-  sections/                Nav, Hero, Marquee, Services, ForgeLoop, Principles, Contact, Footer
+  sections/                Nav, Hero, Services, ForgeLoop, CaseStudies, Method, Principles, Contact, Footer
 DESIGN.md                  visual source of truth
 STYLE-LOOP.md              rules for agent loops working on this repo
 ```

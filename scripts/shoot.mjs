@@ -11,7 +11,7 @@ const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
   { name: 'mobile', width: 390, height: 844 },
 ]
-const sections = ['top', 'services', 'loop', 'cases', 'principles', 'contact']
+const sections = ['top', 'services', 'loop', 'cases', 'inside', 'built', 'principles', 'contact']
 
 mkdirSync('shots', { recursive: true })
 const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { stdio: 'ignore' })

@@ -1,18 +1,5 @@
-import { motion } from 'motion/react'
-import { ease, dur } from '../../lib/motion'
-
-// Generic block entrance: fade + rise + un-blur. Use for anything that isn't a headline.
-export function Reveal({ children, delay = 0, className = '', as = 'div' }) {
-  const Comp = motion[as]
-  return (
-    <Comp
-      className={className}
-      initial={{ opacity: 0, y: 32, filter: 'blur(8px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-10% 0px' }}
-      transition={{ duration: dur.slow, ease: ease.forge, delay }}
-    >
-      {children}
-    </Comp>
-  )
+// Block wrapper. Content below the hero is visible by default (design review, 2026-10-03):
+// no fade-in on scroll, so nothing is hidden from screenshots, slow devices or impatient readers.
+export function Reveal({ children, className = '', as: Tag = 'div' }) {
+  return <Tag className={className}>{children}</Tag>
 }

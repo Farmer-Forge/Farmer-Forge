@@ -4,11 +4,14 @@
 export const site = {
   name: 'Farmer Forge',
   domain: 'farmer-forge.com',
-  email: 'hello@farmer-forge.com', // TODO: confirm the real inbox before launch
+  email: 'hello@farmer-forge.com',
+  // One main-action label everywhere (nav, hero, contact).
+  cta: { label: 'Start a project', href: '#contact' },
   nav: [
     { label: 'Services', href: '#services' },
     { label: 'Method', href: '#loop' },
     { label: 'Case studies', href: '#cases' },
+    { label: 'Inside the forge', href: '#inside' },
     { label: 'Principles', href: '#principles' },
   ],
 
@@ -17,41 +20,26 @@ export const site = {
     lines: ['Architecture,', 'forged at', 'machine speed.'],
     heatLine: 2, // which line gets the heat gradient
     body: 'Farmer Forge designs the system. Agentic AI builds it. You get production software on a timeline that used to be impossible, with an architect accountable for every decision.',
-    primary: { label: 'Start a project', href: '#contact' },
     secondary: { label: 'See the method', href: '#loop' },
   },
 
-  marquee: [
-    'Legacy modernization',
-    'Greenfield builds',
-    'Agent loops',
-    'React',
-    'TypeScript',
-    'Postgres',
-    'Supabase',
-    'Event-driven systems',
-    'Enterprise architecture',
-    'Spec-first delivery',
-  ],
-
   services: {
-    eyebrow: '01 / What we forge',
     title: 'What goes into the fire.',
     items: [
       {
-        id: '01',
+        id: 'legacy',
         title: 'Legacy modernization',
         body: 'The system that runs the business but nobody wants to touch. We map it, draw the target architecture, and let agent loops carry the migration while a human signs off on every seam.',
         tags: ['Strangler patterns', 'Data migration', 'Zero-downtime cutover'],
       },
       {
-        id: '02',
+        id: 'greenfield',
         title: 'Greenfield builds',
         body: 'From a blank page to a working product in weeks. Architecture and specs come first; the build runs in tight, verified iterations you can watch land.',
         tags: ['MVP to v1', 'React + Postgres', 'Design systems'],
       },
       {
-        id: '03',
+        id: 'agent-loops',
         title: 'Agent-loop engineering',
         body: 'Already have a team? We set up the loops, guardrails and review gates so your engineers ship with agents instead of babysitting them.',
         tags: ['Loop design', 'Guardrails', 'Team enablement'],
@@ -60,7 +48,6 @@ export const site = {
   },
 
   loop: {
-    eyebrow: '02 / The forge loop',
     title: 'Human decides. Machine executes.',
     steps: [
       { k: 'Survey', body: 'Understand the terrain: the code, the data, the people, the constraints nobody wrote down.' },
@@ -73,7 +60,6 @@ export const site = {
 
   // Case studies: real numbers only (see DESIGN.md). Nothing names a client.
   cases: {
-    eyebrow: '03 / Case studies',
     title: 'What came out of the fire.',
     items: [
       {
@@ -100,16 +86,80 @@ export const site = {
     ],
   },
 
+  // How the loop behind the MyGear case study actually runs. Describe only: no file contents,
+  // hostnames or paths. Every claim here traces to the loop's own activity log or the build retro.
+  method: {
+    title: 'Inside the forge.',
+    intro:
+      'The MyGear build above ran on a loop I built and host myself. Here is how it works, and where I stay in charge.',
+    items: [
+      {
+        k: 'plan',
+        title: 'It starts with a plan, not a prompt.',
+        body: 'Before the loop runs, I write the whole build out as tasks. Each task is broken into numbered steps, and each step has the exact change to make and a way to prove it worked. The last step of every task is a commit. The design decisions happen here, before any code exists.',
+      },
+      {
+        k: 'driver',
+        title: 'One step per pass, fresh every time.',
+        body: 'A driver script starts a new agent session for every pass, with a clean context and no leftover assumptions. It finds the next unchecked step, does only that step, verifies it and ticks the box. Then the session ends and the next one starts. MyGear took 52 passes across six features.',
+      },
+      {
+        k: 'memory',
+        title: 'Memory lives in a log, not in the model.',
+        body: 'Every pass writes down what it did, what it checked and what the next pass needs to know. When a pass found that the plan’s own code failed the linter, it fixed the code, explained why, and left a rule so later steps wouldn’t hit the same problem. With no browser to test in, it tested every flow through the API instead, using throwaway accounts it deleted afterward.',
+      },
+      {
+        k: 'sandbox',
+        title: 'Every task gets its own sandbox.',
+        body: 'The loop runs on a self-hosted Postgres stack on my own server. Each task works in its own copy of the repository, inside a container that holds only the access that task needs. Commits stay local. Nothing reaches the real codebase until I’ve reviewed it.',
+      },
+      {
+        k: 'guardrails',
+        title: 'Guardrails for what tests can’t see.',
+        body: 'Tests can’t tell you a screen looks wrong. So the loop has to read a design system before touching any UI and check its work against it before committing. If it needs a pattern that doesn’t exist, it has to add it to the system rather than improvise one.',
+      },
+      {
+        k: 'review',
+        title: 'Where I stay in.',
+        body: 'I write the plan, review every task, and run a retro after the build. Findings fall into three buckets: the loop, the template and the app. Fixes go back into the template, so the next project starts better than this one ended.',
+      },
+    ],
+  },
+
+  // Live apps a visitor can open. Each card's `method` says how it was really built. Only claim
+  // "built by the unattended loop" once that's true (so far, only MyGear).
+  built: {
+    title: 'Shipped and running.',
+    intro: 'Two live apps I built the same way: a written design spec and plan before any code, agents doing the build, and my review before anything ships.',
+    linkLabel: 'Visit',
+    items: [
+      {
+        id: 'ufopager',
+        name: 'UFO Pager',
+        method: 'Spec-first, agent-built',
+        href: 'https://ufopager.com/',
+        tags: ['React + Supabase', 'Stripe', 'Live federal data'],
+        body: 'A crowdsourced map of UFO and UAP sightings. People report what they saw, get an email when a sighting lands near them, and browse real federal UAP records pulled live from the National Archives. Subscriptions are built on Stripe.',
+      },
+      {
+        id: 'campsites',
+        name: 'Campsite Finder',
+        // Flip to 'Built by the unattended loop' once the loop has actually built it.
+        method: 'Spec-first, moving to the loop',
+        href: 'https://campsites.farmer-forge.com/',
+        tags: ['Angular + PrimeNG', 'Supabase', 'Installable PWA'],
+        body: 'Finds the nearest federal campgrounds from the National Park Service’s public data, on a map and in a sortable list, with saved favorites for signed-in users. It installs on a phone like an app, and it doubled as a side-by-side test of Angular against React.',
+      },
+    ],
+  },
+
   principles: {
-    eyebrow: '04 / Principles',
     statement:
       'Speed is cheap now. Judgment is not. We use machines for the volume and keep humans on the decisions that are expensive to get wrong.',
   },
 
   contact: {
-    eyebrow: '05 / Start',
     lines: ['Bring the', 'raw material.'],
     body: 'A legacy system, a half-built product, or just an idea. Tell us what you are working with.',
-    cta: 'Start a conversation',
   },
 }

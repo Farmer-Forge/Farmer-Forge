@@ -1,14 +1,18 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { site } from '../content/site'
 import { SplitReveal } from '../components/ui/SplitReveal'
 import { Button } from '../components/ui/Button'
+import { StaticHero } from '../components/ui/StaticHero'
 import { ease, dur } from '../lib/motion'
 
 const HeroScene = lazy(() => import('../components/three/HeroScene'))
+const PHONE = '(max-width: 767px)'
 
 export function Hero() {
   const { hero } = site
+  // Phones get the card's sphere as SVG and never download three.js.
+  const [phone] = useState(() => window.matchMedia(PHONE).matches)
   const { scrollY } = useScroll()
   const fade = useTransform(scrollY, [0, 600], [1, 0])
   const lift = useTransform(scrollY, [0, 600], [0, -120])
@@ -17,9 +21,13 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-svh items-end overflow-hidden pb-16 pt-32 md:items-center md:pb-0">
       <motion.div className="absolute inset-0" style={{ scale: sceneScale }}>
-        <Suspense fallback={<div className="absolute inset-0 bg-ink-950" />}>
-          <HeroScene />
-        </Suspense>
+        {phone ? (
+          <StaticHero />
+        ) : (
+          <Suspense fallback={<div className="absolute inset-0 bg-ink-950" />}>
+            <HeroScene />
+          </Suspense>
+        )}
       </motion.div>
 
       {/* scrim so copy always reads on top of the shader */}
@@ -44,7 +52,7 @@ export function Hero() {
             <SplitReveal
               key={line}
               text={line}
-              inView={false}
+              animate
               delay={0.35 + i * 0.14}
               className="block"
               wordClassName={i === hero.heatLine ? 'text-heat' : ''}
@@ -67,7 +75,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: dur.slow, ease: ease.forge, delay: 1.2 }}
         >
-          <Button href={hero.primary.href}>{hero.primary.label}</Button>
+          <Button href={site.cta.href}>{site.cta.label}</Button>
           <Button href={hero.secondary.href} variant="ghost">
             {hero.secondary.label}
           </Button>

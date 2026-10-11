@@ -47,7 +47,7 @@ export function Nav() {
         }`}
       >
         <Wordmark />
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {site.nav.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="group relative text-sm text-bone-200 transition-colors hover:text-bone-50">
@@ -58,10 +58,10 @@ export function Nav() {
           ))}
         </ul>
         <a
-          href="#contact"
+          href={site.cta.href}
           className="rounded-full border border-ember-500/60 px-4 py-2 text-xs font-medium tracking-wide text-ember-300 transition-colors hover:bg-ember-500 hover:text-ink-950"
         >
-          Start a project
+          {site.cta.label}
         </a>
       </nav>
     </motion.header>
