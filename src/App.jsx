@@ -5,6 +5,7 @@ import { Hero } from './sections/Hero'
 import { Marquee } from './sections/Marquee'
 import { Services } from './sections/Services'
 import { ForgeLoop } from './sections/ForgeLoop'
+import { CaseStudies } from './sections/CaseStudies'
 import { Principles } from './sections/Principles'
 import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
@@ -21,6 +22,7 @@ export default function App() {
         <Marquee />
         <Services />
         <ForgeLoop />
+        <CaseStudies />
         <Principles />
         <Contact />
       </main>

@@ -120,6 +120,13 @@ Stagger: `words` 0.06s, `items` 0.12s.
 - Section rhythm: `py-32 md:py-44` standard, `py-40 md:py-56` for the statement and CTA sections.
 - Copy lives in `src/content/site.js`. Sections never hard-code text.
 
+## Case studies
+
+- Section `#cases` sits after the Forge Loop: method first, then proof.
+- One full-width `SpotlightCard` per case. Tags, `display-md` title and body on the left; stats on the right, split by a bone hairline (stacked above a top hairline on mobile).
+- Stats use Unbounded in `bone-50`, never the heat gradient, with a `bone-400` label.
+- Every stat must be real and traceable to a written case study. No client names, no rounded-up guesses.
+
 ## Don'ts
 
 - No default Tailwind colors (they're disabled anyway) and no raw hex in JSX. The exceptions are three.js material props and GLSL, which can't read CSS variables. Keep those in sync with this file.

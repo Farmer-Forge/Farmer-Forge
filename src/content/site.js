@@ -6,8 +6,9 @@ export const site = {
   domain: 'farmer-forge.com',
   email: 'hello@farmer-forge.com', // TODO: confirm the real inbox before launch
   nav: [
-    { label: 'Work', href: '#services' },
+    { label: 'Services', href: '#services' },
     { label: 'Method', href: '#loop' },
+    { label: 'Case studies', href: '#cases' },
     { label: 'Principles', href: '#principles' },
   ],
 
@@ -70,14 +71,43 @@ export const site = {
     ],
   },
 
+  // Case studies: real numbers only (see DESIGN.md). Nothing names a client.
+  cases: {
+    eyebrow: '03 / Case studies',
+    title: 'What came out of the fire.',
+    items: [
+      {
+        id: 'manufacturing',
+        tags: ['Legacy modernization', 'Manufacturing'],
+        title: 'Modernizing a 30-year-old core without stopping production',
+        body: 'One database from the mid-1990s, more than 100 applications on top of it, including shop-floor systems that drive production machinery. A big-bang rewrite was never an option. The WinForms core was refactored to Model-View-Presenter so its logic could be tested, every new app goes through a unit-tested API instead of the database, and new React and Node apps, one of them client-facing, take over the old system piece by piece.',
+        stats: [
+          { value: '0 → 1,000+', label: 'unit tests in about three months' },
+          { value: '1 month', label: 'CRM MVP delivered, against 4+ expected' },
+          { value: '100+', label: 'apps on one shared database, still running' },
+        ],
+      },
+      {
+        id: 'mygear',
+        tags: ['Agent loop', 'React + Postgres'],
+        title: 'A full-stack app built by an unattended agent loop',
+        body: 'Accounts, admin roles, per-user data privacy and forms driven by the database, built one verified step at a time with no one at the keyboard. The loop tested its own work at the API layer. Review then caught what no test could, like navigation with no single owner and styling drift, and every fix went back into the template for the next project.',
+        stats: [
+          { value: '52', label: 'unattended build passes' },
+          { value: '6', label: 'features shipped as clean commits' },
+        ],
+      },
+    ],
+  },
+
   principles: {
-    eyebrow: '03 / Principles',
+    eyebrow: '04 / Principles',
     statement:
       'Speed is cheap now. Judgment is not. We use machines for the volume and keep humans on the decisions that are expensive to get wrong.',
   },
 
   contact: {
-    eyebrow: '04 / Start',
+    eyebrow: '05 / Start',
     lines: ['Bring the', 'raw material.'],
     body: 'A legacy system, a half-built product, or just an idea. Tell us what you are working with.',
     cta: 'Start a conversation',

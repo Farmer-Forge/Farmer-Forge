@@ -72,7 +72,10 @@ export function ForgeLoop() {
                 <span data-num className="font-display text-6xl font-bold text-heat md:text-8xl">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span className="font-mono text-sm text-bone-400">{i === loop.steps.length - 1 ? '↺ repeat' : '→'}</span>
+                {/* Direction cue only makes sense in the sideways desktop track; stacked cards read top to bottom. */}
+                <span aria-hidden className="hidden font-mono text-sm text-bone-400 min-[900px]:inline">
+                  {i === loop.steps.length - 1 ? '↺ repeat' : '→'}
+                </span>
               </div>
               <div className="mt-10">
                 <h3 className="display-md">{s.k}</h3>
