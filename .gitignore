@@ -4,3 +4,6 @@ shots
 .vercel
 .DS_Store
 dist-preview
+
+# Windows download metadata
+*:Zone.Identifier
