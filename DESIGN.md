@@ -142,6 +142,16 @@ Stagger: `words` 0.06s, `items` 0.12s.
 - One `SpotlightCard` per live app, two columns from `md`. Plasma dot + mono build-method label, `display-md` name, body, tags, and a **ghost** `Button` that opens the app in a new tab. Never a heat button here.
 - Label each app by how it was really built. Only say "built by the unattended loop" for apps the loop actually built.
 
+## Pricing (`#pricing`)
+
+- Sits after "Shipped and running" and before Principles: proof first, then what it costs.
+- Section opens on its `display-lg` title and a `max-w-xl` intro, like every other section.
+- One `SpotlightCard` per offering, two columns from `md`. `display-md` title, then the price: a mono `bone-400` label ("Starting at") over the figure in Unbounded `bone-50`. Prices follow the stats rule: never the heat gradient.
+- Optional bullet lists inside a card use the hairline list pattern (bone hairlines, no bullets).
+- "How a project runs" follows as a hairline steps strip: four columns on `lg`, two on `md`, stacked on phones. Step numbers are mono `bone-400`, not `text-heat`, because the Forge Loop already owns the heat numbers.
+- One **ghost** `Button` with `site.cta`; the heat button stays in Contact.
+- Prices are real, current, "starting at" figures set by Shawn. No discounts, countdowns or "most popular" badges.
+
 ## Don'ts
 
 - No default Tailwind colors (they're disabled anyway) and no raw hex in JSX. The exceptions are three.js material props and GLSL, which can't read CSS variables. Keep those in sync with this file.

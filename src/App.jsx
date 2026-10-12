@@ -7,6 +7,7 @@ import { ForgeLoop } from './sections/ForgeLoop'
 import { CaseStudies } from './sections/CaseStudies'
 import { Method } from './sections/Method'
 import { Built } from './sections/Built'
+import { Pricing } from './sections/Pricing'
 import { Principles } from './sections/Principles'
 import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
@@ -25,6 +26,7 @@ export default function App() {
         <CaseStudies />
         <Method />
         <Built />
+        <Pricing />
         <Principles />
         <Contact />
       </main>

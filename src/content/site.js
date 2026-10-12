@@ -12,6 +12,7 @@ export const site = {
     { label: 'Method', href: '#loop' },
     { label: 'Case studies', href: '#cases' },
     { label: 'Inside the forge', href: '#inside' },
+    { label: 'Pricing', href: '#pricing' },
     { label: 'Principles', href: '#principles' },
   ],
 
@@ -150,6 +151,55 @@ export const site = {
         tags: ['Angular + PrimeNG', 'Supabase', 'Installable PWA'],
         body: 'Finds the nearest federal campgrounds from the National Park Service’s public data, on a map and in a sortable list, with saved favorites for signed-in users. It installs on a phone like an app, and it doubled as a side-by-side test of Angular against React.',
       },
+    ],
+  },
+
+  // Engagement pricing. Prices are Shawn's; "starting at" figures, never quotes.
+  pricing: {
+    title: 'What it costs.',
+    intro: 'Every project starts with a conversation. No pressure, and no surprise invoices.',
+    items: [
+      {
+        id: 'new',
+        title: 'New builds',
+        priceLabel: 'Starting at',
+        price: '$8,000',
+        body: 'A custom web app built from scratch around your workflow. Every build includes user accounts, an admin area to manage your data, a mobile-friendly design, and launch on your own domain. A free consult gets you an estimate range before you commit to anything.',
+      },
+      {
+        id: 'existing',
+        title: 'Existing systems',
+        priceLabel: 'Reviews from',
+        price: '$300',
+        body: 'Already have software that’s slow, broken, or outgrown? I start with a two-hour review and give you a written summary: what’s working, what’s at risk, and what it would take to fix. Ongoing work is billed hourly or quoted per feature.',
+      },
+      {
+        id: 'consulting',
+        title: 'Consulting',
+        priceLabel: 'Starting at',
+        price: '$500',
+        body: 'Straight answers from someone who builds this every day:',
+        list: [
+          'AI and automation: where it actually saves time',
+          'Choosing a tech stack and hosting',
+          'Database design',
+          'Turning an app idea into a buildable plan',
+        ],
+      },
+      {
+        id: 'care',
+        title: 'Hosting & care plans',
+        priceLabel: 'Pricing',
+        price: 'On request',
+        body: 'I can keep your app running, updated, and monitored, so you don’t have to think about it.',
+      },
+    ],
+    stepsTitle: 'How a project runs',
+    steps: [
+      { k: 'Free consult', body: 'We talk through what you need, and I give you an honest estimate range.' },
+      { k: 'Spec', body: 'I define exactly what gets built, with a fixed price.' },
+      { k: 'Build', body: 'You see progress along the way, with two rounds of revisions included.' },
+      { k: 'Launch', body: 'It goes live, plus 30 days of bug fixes.' },
     ],
   },
 
