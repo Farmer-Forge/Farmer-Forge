@@ -57,6 +57,7 @@ Fonts are self-hosted via `@fontsource-variable/*`, so nothing comes from Google
 - `display-xl`: `clamp(2.6rem, 7.4vw, 7.5rem)`, leading 0.92, tracking -0.045em. One per section at most.
 - `display-lg`: section titles.
 - `display-md`: card and step titles.
+- **Numbered steps** (Forge Loop, How a project runs): a plain number with no leading zero (`1`, not `01`), on the same line as the step name and the same size, so number and name read as one heading (2026-10-12).
 - Only the hero has an `eyebrow`. Sections open straight on their `display-lg` title: no `NN / Label` eyebrows, no `/01` numbering (design review, 2026-10-03).
 - Body copy maxes out at `max-w-xl` (roughly 60ch).
 
@@ -148,7 +149,8 @@ Stagger: `words` 0.06s, `items` 0.12s.
 - Section opens on its `display-lg` title and a `max-w-xl` intro, like every other section.
 - One `SpotlightCard` per offering, two columns from `md`. `display-md` title, then the price: a mono `bone-400` label ("Starting at") over the figure in Unbounded `bone-50`. Prices follow the stats rule: never the heat gradient.
 - Optional bullet lists inside a card use the hairline list pattern (bone hairlines, no bullets).
-- "How a project runs" follows as a hairline steps strip: four columns on `lg`, two on `md`, stacked on phones. Step numbers are mono `bone-400`, not `text-heat`, because the Forge Loop already owns the heat numbers.
+- An offering for a different audience (agencies and dev teams) gets one full-width card (`wide`) under the 2×2 grid, never a fifth half-width card left alone in a row. A card may end with one mono `bone-400` `note` line.
+- "How a project runs" follows as a hairline steps strip: four columns on `lg`, two on `md`, stacked on phones. Step numbers are `bone-400`, not `text-heat`, because the Forge Loop already owns the heat numbers.
 - One **ghost** `Button` with `site.cta`; the heat button stays in Contact.
 - Prices are real, current, "starting at" figures set by Shawn. No discounts, countdowns or "most popular" badges.
 

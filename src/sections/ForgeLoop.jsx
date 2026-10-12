@@ -15,13 +15,13 @@ export function ForgeLoop() {
           {loop.steps.map((s, i) => (
             <li
               key={s.k}
-              className="grid grid-cols-[3.5rem_1fr] gap-x-6 gap-y-3 border-b border-bone-50/10 py-8 md:grid-cols-[6rem_minmax(0,16rem)_1fr] md:items-baseline md:gap-x-10 md:py-10"
+              className="grid gap-y-3 border-b border-bone-50/10 py-8 md:grid-cols-[minmax(0,18rem)_1fr] md:items-baseline md:gap-x-10 md:py-10"
             >
-              <span aria-hidden className="font-display text-3xl font-bold text-heat md:text-5xl">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="display-md">{s.k}</h3>
-              <p className="col-start-2 max-w-xl leading-relaxed text-bone-200 md:col-start-3">{s.body}</p>
+              <h3 className="display-md flex items-baseline gap-4">
+                <span className="text-heat">{i + 1}</span>
+                <span>{s.k}</span>
+              </h3>
+              <p className="max-w-xl leading-relaxed text-bone-200">{s.body}</p>
             </li>
           ))}
         </ol>
