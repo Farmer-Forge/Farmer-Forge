@@ -182,7 +182,7 @@ export const site = {
         list: [
           'AI and automation: where it actually saves time',
           'Choosing a tech stack and hosting',
-          'Database design',
+          'Database schema design',
           'Turning an app idea into a buildable plan',
         ],
       },

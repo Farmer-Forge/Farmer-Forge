@@ -26,7 +26,7 @@ Defined in `src/index.css` → `@theme`. The default Tailwind palette is **disab
 | Token | Hex | Use |
 |---|---|---|
 | `ink-950` | `#0b0d13` | Page background |
-| `ink-900` | `#11141c` | Alternate section background |
+| `ink-900` | `#11141c` | Raised surfaces only. Never a full-width section background: every section sits on `ink-950`, so no band reads as a different page (2026-10-12) |
 | `ink-800` | `#181c26` | Glass base |
 | `ink-700` | `#232836` | Grid lines, deep surfaces |
 | `ink-600` | `#333a4a` | 3D base material |
@@ -94,7 +94,7 @@ Stagger: `words` 0.06s, `items` 0.12s.
 - **Radius:** `rounded-3xl` for cards, `rounded-full` for buttons, pills and tags. Nothing in between.
 - **Grain:** one fixed SVG-noise overlay at 7% opacity, animated. Already in `App.jsx`. Don't add more.
 - **Glow:** only via `ember-500` shadows on the primary button, plasma dot shadows, and the cursor glow. No generic `shadow-lg`.
-- **Grid backdrop:** 64px ink-700 grid with a radial mask. Forge Loop section only.
+- **Grid backdrop:** 64px ink-700 grid with a radial mask, on the shared `ink-950` page background. Forge Loop section only.
 
 ## Components (`src/components/ui/`)
 

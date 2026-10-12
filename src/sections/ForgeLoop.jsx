@@ -5,7 +5,7 @@ import { SplitReveal } from '../components/ui/SplitReveal'
 export function ForgeLoop() {
   const { loop } = site
   return (
-    <section id="loop" className="relative overflow-hidden bg-ink-900">
+    <section id="loop" className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(var(--color-ink-700)_1px,transparent_1px),linear-gradient(90deg,var(--color-ink-700)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-32 md:px-10 md:py-44">
