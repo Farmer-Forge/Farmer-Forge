@@ -20,7 +20,7 @@ export const site = {
     eyebrow: 'AI-native software architecture',
     lines: ['Architecture,', 'forged at', 'machine speed.'],
     heatLine: 2, // which line gets the heat gradient
-    body: 'Farmer Forge designs the system. Agentic AI builds it. You get production software on a timeline that used to be impossible, with an architect accountable for every decision.',
+    body: 'I design the system. Agentic AI builds it. You get production software on a timeline that used to be impossible, with an architect accountable for every decision.',
     secondary: { label: 'See the method', href: '#loop' },
   },
 
@@ -30,7 +30,7 @@ export const site = {
       {
         id: 'legacy',
         title: 'Legacy modernization',
-        body: 'The system that runs the business but nobody wants to touch. We map it, draw the target architecture, and let agent loops carry the migration while a human signs off on every seam.',
+        body: 'The system that runs the business but nobody wants to touch. I map it, draw the target architecture, and let agent loops carry the migration while I sign off on every seam.',
         tags: ['Strangler patterns', 'Data migration', 'Zero-downtime cutover'],
       },
       {
@@ -42,7 +42,7 @@ export const site = {
       {
         id: 'agent-loops',
         title: 'Agent-loop engineering',
-        body: 'Already have a team? We set up the loops, guardrails and review gates so your engineers ship with agents instead of babysitting them.',
+        body: 'Already have a team? I set up the loops, guardrails and review gates so your engineers ship with agents instead of babysitting them.',
         tags: ['Loop design', 'Guardrails', 'Team enablement'],
       },
     ],
@@ -196,8 +196,8 @@ export const site = {
     ],
     stepsTitle: 'How a project runs',
     steps: [
-      { k: 'Free consult', body: 'We talk through what you need, and I give you an honest estimate range.' },
-      { k: 'Spec', body: 'I define exactly what gets built, with a fixed price.' },
+      { k: 'Free consult', body: 'You tell me what you need, and I give you an honest estimate range.' },
+      { k: 'Spec', body: 'I define exactly what gets built, with a fixed price. The spec fee is credited toward the build.' },
       { k: 'Build', body: 'You see progress along the way, with two rounds of revisions included.' },
       { k: 'Launch', body: 'It goes live, plus 30 days of bug fixes.' },
     ],
@@ -205,11 +205,11 @@ export const site = {
 
   principles: {
     statement:
-      'Speed is cheap now. Judgment is not. We use machines for the volume and keep humans on the decisions that are expensive to get wrong.',
+      'Speed is cheap now. Judgment is not. I use machines for the volume and keep a human on the decisions that are expensive to get wrong.',
   },
 
   contact: {
     lines: ['Bring the', 'raw material.'],
-    body: 'A legacy system, a half-built product, or just an idea. Tell us what you are working with.',
+    body: 'A legacy system, a half-built product, or just an idea. Tell me what you are working with.',
   },
 }
